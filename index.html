@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Retro Arcade</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/games.css">
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+    <meta name="description" content="Play classic arcade games like Minesweeper, Tetris, and Snake">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1 class="logo">Retro Arcade</h1>
+            <nav>
+                <ul class="main-nav">
+                    <li><a href="javascript:void(0)" class="active">Home</a></li>
+                    <li><a href="javascript:void(0)" onclick="navigateWithTransition('minesweeper.html')">Minesweeper</a></li>
+                    <li><a href="javascript:void(0)" onclick="navigateWithTransition('tetris.html')">Tetris</a></li>
+                    <li><a href="javascript:void(0)" onclick="navigateWithTransition('snake.html')">Snake</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h2>Welcome to Retro Arcade</h2>
+                <p>Experience the nostalgia of classic arcade games, reimagined for your browser.</p>
+            </div>
+        </section>
+
+        <section class="games-grid">
+            <div class="container">
+                <h2>Choose Your Game</h2>
+                <div class="game-cards">
+                    <div class="game-card">
+                        <div class="game-image" id="minesweeper-img"></div>
+                        <h3>Minesweeper</h3>
+                        <p>Test your logic and memory in this classic puzzle game.</p>
+                        <a href="javascript:void(0)" onclick="navigateWithTransition('minesweeper.html')" class="button">Play Now</a>
+                        <button class="help-link" onclick="showGameInstructions('minesweeper')">How to Play</button>
+                    </div>
+                    <div class="game-card">
+                        <div class="game-image" id="tetris-img"></div>
+                        <h3>Tetris</h3>
+                        <p>Arrange falling blocks to create and clear lines.</p>
+                        <a href="javascript:void(0)" onclick="navigateWithTransition('tetris.html')" class="button">Play Now</a>
+                        <button class="help-link" onclick="showGameInstructions('tetris')">How to Play</button>
+                    </div>
+                    <div class="game-card">
+                        <div class="game-image" id="snake-img"></div>
+                        <h3>Snake</h3>
+                        <p>Guide the snake to eat food while avoiding collisions.</p>
+                        <a href="javascript:void(0)" onclick="navigateWithTransition('snake.html')" class="button">Play Now</a>
+                        <button class="help-link" onclick="showGameInstructions('snake')">How to Play</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 Retro Arcade. All rights reserved.</p>
+            <p>Created with vanilla HTML, CSS, and JavaScript.</p>
+        </div>
+    </footer>
+
+    <script src="scripts/main.js"></script>
+    <!-- Test script - remove in production -->
+    <script src="scripts/test.js"></script>
+</body>
+</html>

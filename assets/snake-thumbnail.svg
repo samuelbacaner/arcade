@@ -1,0 +1,41 @@
+<svg width="300" height="180" xmlns="http://www.w3.org/2000/svg">
+  <rect width="300" height="180" fill="#e74c3c" />
+  <g transform="translate(75, 30)">
+    <rect width="150" height="120" fill="#f9f9f9" rx="5" ry="5" />
+    
+    <!-- Grid background (subtle) -->
+    <g stroke="#eee" stroke-width="1">
+      <line x1="0" y1="20" x2="150" y2="20" />
+      <line x1="0" y1="40" x2="150" y2="40" />
+      <line x1="0" y1="60" x2="150" y2="60" />
+      <line x1="0" y1="80" x2="150" y2="80" />
+      <line x1="0" y1="100" x2="150" y2="100" />
+      
+      <line x1="30" y1="0" x2="30" y2="120" />
+      <line x1="60" y1="0" x2="60" y2="120" />
+      <line x1="90" y1="0" x2="90" y2="120" />
+      <line x1="120" y1="0" x2="120" y2="120" />
+    </g>
+    
+    <!-- Snake body -->
+    <g fill="#2ecc71" stroke="#27ae60" stroke-width="1">
+      <!-- Snake head -->
+      <rect x="90" y="40" width="20" height="20" rx="2" ry="2" />
+      
+      <!-- Snake body -->
+      <rect x="70" y="40" width="20" height="20" rx="2" ry="2" />
+      <rect x="50" y="40" width="20" height="20" rx="2" ry="2" />
+      <rect x="30" y="40" width="20" height="20" rx="2" ry="2" />
+      <rect x="30" y="60" width="20" height="20" rx="2" ry="2" />
+      <rect x="30" y="80" width="20" height="20" rx="2" ry="2" />
+      <rect x="50" y="80" width="20" height="20" rx="2" ry="2" />
+    </g>
+    
+    <!-- Snake eyes -->
+    <circle cx="95" cy="45" r="2" fill="#333" />
+    <circle cx="105" cy="45" r="2" fill="#333" />
+    
+    <!-- Food -->
+    <circle cx="110" y="80" r="8" fill="#e74c3c" />
+  </g>
+</svg>

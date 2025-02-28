@@ -1,0 +1,8 @@
+# robots.txt for Retro Arcade
+# This file tells search engine crawlers which URLs they can access on this site
+
+User-agent: *
+Allow: /
+
+# Sitemap (to be added when site is deployed)
+# Sitemap: https://example.com/sitemap.xml

@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Retro Arcade - Validation</title>
+    <style>
+        body {
+            font-family: 'Open Sans', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1, h2 {
+            font-family: 'Poppins', sans-serif;
+        }
+        iframe {
+            border: 1px solid #ddd;
+            width: 100%;
+            height: 300px;
+            margin-bottom: 20px;
+        }
+        .result {
+            background-color: #f5f5f5;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        .success {
+            color: #2ecc71;
+            font-weight: bold;
+        }
+        .error {
+            color: #e74c3c;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Retro Arcade - Validation Report</h1>
+    
+    <p>This page checks if the website implementation meets all the required criteria.</p>
+    
+    <h2>Website Structure</h2>
+    <div class="result" id="structure-result">Checking...</div>
+    
+    <h2>Page Preview</h2>
+    <iframe src="index.html" title="Retro Arcade"></iframe>
+    
+    <h2>Navigation Check</h2>
+    <div class="result" id="navigation-result">Checking...</div>
+    
+    <h2>Responsive Design Check</h2>
+    <div class="result" id="responsive-result">Checking...</div>
+    
+    <h2>Game Pages Check</h2>
+    <div class="result" id="games-result">Checking...</div>
+    
+    <script>
+        // Structure check
+        function checkStructure() {
+            const requiredFiles = [
+                'index.html',
+                'minesweeper.html',
+                'tetris.html',
+                'snake.html',
+                'styles/main.css',
+                'styles/games.css',
+                'scripts/main.js'
+            ];
+            
+            let allFound = true;
+            let results = '<ul>';
+            
+            for (const file of requiredFiles) {
+                fetch(file)
+                    .then(response => {
+                        if (response.ok) {
+                            results += `<li class="success">✅ ${file} found</li>`;
+                        } else {
+                            results += `<li class="error">❌ ${file} not found</li>`;
+                            allFound = false;
+                        }
+                        
+                        if (results.split('</li>').length - 1 === requiredFiles.length) {
+                            results += '</ul>';
+                            if (allFound) {
+                                results = '<span class="success">All required files found!</span>' + results;
+                            } else {
+                                results = '<span class="error">Some files are missing!</span>' + results;
+                            }
+                            document.getElementById('structure-result').innerHTML = results;
+                        }
+                    })
+                    .catch(() => {
+                        results += `<li class="error">❌ ${file} not found</li>`;
+                        allFound = false;
+                        
+                        if (results.split('</li>').length - 1 === requiredFiles.length) {
+                            results += '</ul>';
+                            if (allFound) {
+                                results = '<span class="success">All required files found!</span>' + results;
+                            } else {
+                                results = '<span class="error">Some files are missing!</span>' + results;
+                            }
+                            document.getElementById('structure-result').innerHTML = results;
+                        }
+                    });
+            }
+        }
+        
+        // Navigation check
+        function checkNavigation() {
+            fetch('index.html')
+                .then(response => response.text())
+                .then(html => {
+                    const parser = new DOMParser();
+                    const doc = parser.parseFromString(html, 'text/html');
+                    const navLinks = doc.querySelectorAll('.main-nav a');
+                    
+                    const requiredLinks = ['index.html', 'minesweeper.html', 'tetris.html', 'snake.html'];
+                    let allLinksExist = true;
+                    let results = '<ul>';
+                    
+                    requiredLinks.forEach(required => {
+                        let found = false;
+                        navLinks.forEach(link => {
+                            if (link.getAttribute('href') === required) {
+                                found = true;
+                            }
+                        });
+                        
+                        if (found) {
+                            results += `<li class="success">✅ Link to ${required} exists</li>`;
+                        } else {
+                            results += `<li class="error">❌ Link to ${required} is missing</li>`;
+                            allLinksExist = false;
+                        }
+                    });
+                    
+                    results += '</ul>';
+                    
+                    if (allLinksExist) {
+                        results = '<span class="success">Navigation system is complete!</span>' + results;
+                    } else {
+                        results = '<span class="error">Navigation system is incomplete!</span>' + results;
+                    }
+                    
+                    document.getElementById('navigation-result').innerHTML = results;
+                })
+                .catch(error => {
+                    document.getElementById('navigation-result').innerHTML = 
+                        `<span class="error">Error checking navigation: ${error.message}</span>`;
+                });
+        }
+        
+        // Responsive design check
+        function checkResponsive() {
+            fetch('styles/main.css')
+                .then(response => response.text())
+                .then(css => {
+                    const hasMediaQueries = css.includes('@media');
+                    const hasFlexOrGrid = css.includes('display: flex') || css.includes('display: grid');
+                    
+                    let results = '<ul>';
+                    
+                    if (hasMediaQueries) {
+                        results += '<li class="success">✅ Media queries found for responsive design</li>';
+                    } else {
+                        results += '<li class="error">❌ No media queries found</li>';
+                    }
+                    
+                    if (hasFlexOrGrid) {
+                        results += '<li class="success">✅ Modern layout techniques (Flexbox/Grid) found</li>';
+                    } else {
+                        results += '<li class="error">❌ No modern layout techniques found</li>';
+                    }
+                    
+                    results += '</ul>';
+                    
+                    if (hasMediaQueries && hasFlexOrGrid) {
+                        results = '<span class="success">Responsive design implemented!</span>' + results;
+                    } else {
+                        results = '<span class="error">Responsive design implementation is incomplete!</span>' + results;
+                    }
+                    
+                    document.getElementById('responsive-result').innerHTML = results;
+                })
+                .catch(error => {
+                    document.getElementById('responsive-result').innerHTML = 
+                        `<span class="error">Error checking responsive design: ${error.message}</span>`;
+                });
+        }
+        
+        // Game pages check
+        function checkGamePages() {
+            const gamePages = ['minesweeper.html', 'tetris.html', 'snake.html'];
+            let checkedPages = 0;
+            let results = '<ul>';
+            let allPagesValid = true;
+            
+            gamePages.forEach(page => {
+                fetch(page)
+                    .then(response => response.text())
+                    .then(html => {
+                        const parser = new DOMParser();
+                        const doc = parser.parseFromString(html, 'text/html');
+                        
+                        const hasGameContainer = doc.querySelector('.game-container') !== null;
+                        const hasGameBoard = doc.querySelector('.game-board') !== null;
+                        const hasInstructions = doc.querySelector('.game-instructions') !== null;
+                        
+                        const pageValid = hasGameContainer && hasGameBoard && hasInstructions;
+                        
+                        if (pageValid) {
+                            results += `<li class="success">✅ ${page} has all required game elements</li>`;
+                        } else {
+                            results += `<li class="error">❌ ${page} is missing some required game elements</li>`;
+                            allPagesValid = false;
+                        }
+                        
+                        checkedPages++;
+                        
+                        if (checkedPages === gamePages.length) {
+                            results += '</ul>';
+                            
+                            if (allPagesValid) {
+                                results = '<span class="success">All game pages are properly structured!</span>' + results;
+                            } else {
+                                results = '<span class="error">Some game pages are missing required elements!</span>' + results;
+                            }
+                            
+                            document.getElementById('games-result').innerHTML = results;
+                        }
+                    })
+                    .catch(error => {
+                        results += `<li class="error">❌ Error loading ${page}: ${error.message}</li>`;
+                        allPagesValid = false;
+                        
+                        checkedPages++;
+                        
+                        if (checkedPages === gamePages.length) {
+                            results += '</ul>';
+                            
+                            if (allPagesValid) {
+                                results = '<span class="success">All game pages are properly structured!</span>' + results;
+                            } else {
+                                results = '<span class="error">Some game pages are missing required elements!</span>' + results;
+                            }
+                            
+                            document.getElementById('games-result').innerHTML = results;
+                        }
+                    });
+            });
+        }
+        
+        // Run all checks when the page loads
+        window.addEventListener('DOMContentLoaded', () => {
+            checkStructure();
+            checkNavigation();
+            checkResponsive();
+            checkGamePages();
+        });
+    </script>
+</body>
+</html>
