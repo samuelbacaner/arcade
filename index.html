@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arcade Games Collection</title>
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/shared/game-selection.css">
+</head>
+<body>
+    <header>
+        <h1>Arcade Games Collection</h1>
+        <nav id="gameNav" class="game-nav hidden">
+            <button class="back-button" id="backToMenu">← Back to Menu</button>
+            <h2 id="currentGameTitle"></h2>
+            <button class="back-button" id="restartGame">Restart</button>
+        </nav>
+    </header>
+
+    <main id="gameContainer" class="game-transition">
+        <div id="gameSelection" class="game-grid">
+            <!-- Game cards will be populated by JavaScript -->
+        </div>
+        <div id="activeGame" class="hidden">
+            <!-- Active game will be loaded here -->
+        </div>
+    </main>
+
+    <script type="module" src="/js/main.js"></script>
+</body>
+</html>

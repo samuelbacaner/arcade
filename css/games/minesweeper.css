@@ -1,0 +1,56 @@
+/* Minesweeper specific styles */
+.minesweeper-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+select {
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    border: 2px solid #666;
+    border-radius: 4px;
+    background-color: #fff;
+    cursor: pointer;
+    margin-bottom: 1rem;
+}
+
+select:hover {
+    border-color: #333;
+}
+
+canvas {
+    border: 2px solid #666;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.game-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(255, 255, 255, 0.9);
+    padding: 2rem;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.resume-button,
+.play-again-button {
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 4px;
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.resume-button:hover,
+.play-again-button:hover {
+    background-color: #45a049;
+}

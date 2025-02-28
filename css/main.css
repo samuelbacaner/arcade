@@ -1,0 +1,101 @@
+/* Modern CSS Reset */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Remove default margin and font styles */
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Improve media defaults */
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* Global Styles */
+:root {
+  --color-primary: #2c3e50;
+  --color-secondary: #3498db;
+  --color-accent: #e74c3c;
+  --color-background: #ecf0f1;
+  --spacing-unit: 1rem;
+}
+
+body {
+  background-color: var(--color-background);
+  color: var(--color-primary);
+  min-height: 100vh;
+}
+
+header {
+  background-color: var(--color-primary);
+  color: white;
+  padding: var(--spacing-unit);
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: var(--spacing-unit);
+}
+
+#gameContainer {
+  padding: var(--spacing-unit);
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Additional global styles */
+.hidden {
+  display: none !important;
+}
+
+/* Game-specific canvas styling */
+canvas {
+  background: white;
+  border: 2px solid var(--color-primary);
+  margin: 0 auto;
+  max-width: 100%;
+}
+
+/* Game selection styles overrides */
+#gameSelection {
+  opacity: 1;
+  transition: opacity 0.3s ease-in-out;
+}
+
+#gameSelection.hidden {
+  opacity: 0;
+}
+
+#activeGame {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh;
+  padding: var(--spacing-unit);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .game-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  h1 {
+    font-size: 1.5rem;
+  }
+  
+  .game-nav {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+}
