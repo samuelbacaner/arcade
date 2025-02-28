@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Retro Arcade</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/minesweeper.css">
+    <link rel="stylesheet" href="css/tetris.css">
+    <link rel="stylesheet" href="css/snake.css">
+    <script src="js/main.js" defer></script>
+    <script src="js/minesweeper.js" defer></script>
+    <script src="js/tetris.js" defer></script>
+    <script src="js/snake.js" defer></script>
+</head>
+<body>
+    <header class="site-header">
+        <div class="header-content">
+            <h1 class="site-title">Retro Arcade</h1>
+            <button class="nav-toggle" 
+                    aria-label="Toggle navigation menu" 
+                    aria-expanded="false"
+                    aria-controls="main-nav"
+                    hidden>
+                <span class="nav-icon"></span>
+            </button>
+        </div>
+        <nav class="main-nav" role="navigation" id="main-nav" aria-label="Main navigation">
+            <ul class="nav-list">
+                <li><a href="#minesweeper" class="nav-link">Minesweeper</a></li>
+                <li><a href="#tetris" class="nav-link">Tetris</a></li>
+                <li><a href="#snake" class="nav-link">Snake</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="game-container">
+        <section id="minesweeper" class="game-section" tabindex="-1">
+            <h2>Minesweeper</h2>
+            <div class="game-frame" role="application" aria-label="Minesweeper game area"></div>
+        </section>
+
+        <section id="tetris" class="game-section" tabindex="-1">
+            <h2>Tetris</h2>
+            <div class="game-frame" role="application" aria-label="Tetris game area"></div>
+        </section>
+
+        <section id="snake" class="game-section" tabindex="-1">
+            <h2>Snake</h2>
+            <div class="game-frame" role="application" aria-label="Snake game area"></div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p>&copy; 2024 Retro Arcade. All rights reserved.</p>
+    </footer>
+</body>
+</html>

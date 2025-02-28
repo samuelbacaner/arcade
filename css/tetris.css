@@ -1,0 +1,123 @@
+/* Tetris game styling */
+:root {
+    --cell-size: 30px;
+    --board-width: calc(var(--cell-size) * 10);  /* Standard 10x20 board */
+    --board-height: calc(var(--cell-size) * 20);
+    --preview-size: calc(var(--cell-size) * 4);
+}
+
+/* IE11 fallbacks */
+html {
+    -ms-cell-size: 30px;
+    -ms-board-width: 300px;
+    -ms-board-height: 600px;
+    -ms-preview-size: 120px;
+}
+
+.tetris-container {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: center;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+.tetris-board {
+    width: 300px;
+    width: var(--board-width);
+    height: 600px;
+    height: var(--board-height);
+    background-color: #111;
+    border: 2px solid #333;
+    position: relative;
+    display: -ms-grid;
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    -ms-grid-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+}
+
+.tetris-cell {
+    border: 1px solid #333;
+    width: 30px;
+    width: var(--cell-size);
+    height: 30px;
+    height: var(--cell-size);
+}
+
+.tetris-info {
+    padding: 10px;
+    background-color: #222;
+    color: white;
+    border: 2px solid #333;
+}
+
+.tetris-preview {
+    width: 120px;
+    width: var(--preview-size);
+    height: 120px;
+    height: var(--preview-size);
+    background-color: #111;
+    border: 2px solid #333;
+    margin-bottom: 20px;
+    display: -ms-grid;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    -ms-grid-columns: 1fr 1fr 1fr 1fr;
+}
+
+.score-display, .level-display {
+    margin: 10px 0;
+    font-size: 1.2em;
+}
+
+/* Tetromino colors */
+.piece-I { background-color: #00f0f0; }
+.piece-O { background-color: #f0f000; }
+.piece-T { background-color: #a000f0; }
+.piece-S { background-color: #00f000; }
+.piece-Z { background-color: #f00000; }
+.piece-J { background-color: #0000f0; }
+.piece-L { background-color: #f0a000; }
+
+/* Game state overlays */
+.game-over {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 20px;
+    text-align: center;
+    border-radius: 5px;
+    display: none;
+}
+
+.game-over.active {
+    display: block;
+}
+
+/* Controls info */
+.controls-info {
+    margin-top: 20px;
+    font-size: 0.9em;
+    color: #888;
+}
+
+@media (max-width: 600px) {
+    .tetris-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .tetris-board {
+        width: 270px;
+        height: 540px;
+    }
+    
+    .tetris-cell {
+        width: 27px;
+        height: 27px;
+    }
+}
