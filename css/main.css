@@ -66,14 +66,13 @@ canvas {
   max-width: 100%;
 }
 
-/* Game selection styles overrides */
+/* Game selection styles */
 #gameSelection {
-  opacity: 1;
-  transition: opacity 0.3s ease-in-out;
+  display: block;
 }
 
 #gameSelection.hidden {
-  opacity: 0;
+  display: none !important;
 }
 
 #activeGame {

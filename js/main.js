@@ -10,19 +10,19 @@ const GAMES_CONFIG = {
     minesweeper: {
         title: 'Minesweeper',
         description: 'Classic puzzle game - clear the minefield without hitting any bombs!',
-        thumbnail: '/assets/minesweeper-preview.png',
+        thumbnail: 'assets/minesweeper-preview.png',
         GameClass: Minesweeper
     },
     tetris: {
         title: 'Tetris',
         description: 'The iconic block-stacking puzzle game',
-        thumbnail: '/assets/tetris-preview.png',
+        thumbnail: 'assets/tetris-preview.png',
         GameClass: Tetris
     },
     snake: {
         title: 'Snake',
         description: 'Guide the snake to eat food and grow while avoiding collisions',
-        thumbnail: '/assets/snake-preview.png',
+        thumbnail: 'assets/snake-preview.png',
         GameClass: Snake
     }
 };
@@ -51,7 +51,7 @@ function createGameCards() {
         card.className = 'game-card';
         card.innerHTML = `
             <div class="game-preview">
-                <img src="${config.thumbnail}" alt="${config.title}" />
+                <img src=".${config.thumbnail}" alt="${config.title}" />
             </div>
             <div class="game-info">
                 <h3 class="game-title">${config.title}</h3>

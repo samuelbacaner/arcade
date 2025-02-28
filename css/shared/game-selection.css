@@ -80,6 +80,10 @@
     background: var(--color-primary);
 }
 
+.game-nav.hidden {
+    display: none !important;
+}
+
 .back-button {
     color: white;
     background: none;
