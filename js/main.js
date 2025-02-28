@@ -32,9 +32,13 @@ let gameContainer, gameSelection, activeGame, gameNav, currentGameTitle;
 
 // Initialize application when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
+    console.log('Initializing application...');
     initializeDOMElements();
+    console.log('Creating game cards...');
     createGameCards();
+    console.log('Setting up event listeners...');
     setupEventListeners();
+    console.log('Initialization complete');
 });
 
 function initializeDOMElements() {
@@ -51,7 +55,7 @@ function createGameCards() {
         card.className = 'game-card';
         card.innerHTML = `
             <div class="game-preview">
-                <img src=".${config.thumbnail}" alt="${config.title}" />
+                <img src="${config.thumbnail}" alt="${config.title}" />
             </div>
             <div class="game-info">
                 <h3 class="game-title">${config.title}</h3>

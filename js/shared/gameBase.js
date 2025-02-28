@@ -1,4 +1,6 @@
 // Base game class that all arcade games will extend
+import { scoreManager } from './utils.js';
+
 export default class GameBase {
     constructor(containerId) {
         this.container = document.getElementById(containerId);

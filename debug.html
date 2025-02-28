@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Debug Console</title>
+</head>
+<body>
+    <div id="output"></div>
+    <script>
+        window.onerror = function(msg, url, lineNo, columnNo, error) {
+            document.getElementById('output').innerHTML += `<p>Error: ${msg}</p><p>At: ${url}:${lineNo}:${columnNo}</p>`;
+            return false;
+        };
+    </script>
+    <script type="module" src="js/main.js"></script>
+</body>
+</html>

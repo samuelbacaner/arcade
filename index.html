@@ -11,7 +11,7 @@
 <body>
     <header>
         <h1>Arcade Games Collection</h1>
-        <nav id="gameNav" class="game-nav hidden">
+        <nav id="gameNav" class="game-nav">
             <button class="back-button" id="backToMenu">← Back to Menu</button>
             <h2 id="currentGameTitle"></h2>
             <button class="back-button" id="restartGame">Restart</button>
@@ -19,7 +19,7 @@
     </header>
 
     <main id="gameContainer" class="game-transition">
-        <div id="gameSelection" class="game-grid">
+        <div id="gameSelection" class="game-grid" style="display: block;">
             <!-- Game cards will be populated by JavaScript -->
         </div>
         <div id="activeGame" class="hidden">
