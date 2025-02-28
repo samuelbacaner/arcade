@@ -1,0 +1,4 @@
+# This directory will contain game-specific JavaScript files
+# - minesweeper.js
+# - tetris.js
+# - snake.js

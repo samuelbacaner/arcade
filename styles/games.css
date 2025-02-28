@@ -1,0 +1,340 @@
+/* Game-specific CSS */
+
+/* Common Game Container Styles */
+.game-container {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: var(--spacing-lg);
+  background-color: white;
+  border-radius: var(--border-radius-md);
+  box-shadow: var(--shadow-md);
+}
+
+/* Game Header Styles */
+.game-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--spacing-lg);
+  flex-wrap: wrap;
+}
+
+.game-title {
+  margin-bottom: var(--spacing-sm);
+}
+
+.game-controls {
+  display: flex;
+  gap: var(--spacing-sm);
+}
+
+/* Game Thumbnail Styles */
+.game-thumbnail {
+  width: 100%;
+  height: auto;
+  border-radius: var(--border-radius-md);
+  box-shadow: var(--shadow-md);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  object-fit: cover;
+}
+
+.game-thumbnail:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Help Link Styles */
+.help-link {
+  background: none;
+  border: none;
+  color: var(--primary-color);
+  font-size: 0.9rem;
+  padding: var(--spacing-xs) 0;
+  margin-top: var(--spacing-xs);
+  cursor: pointer;
+  text-decoration: underline;
+  transition: color 0.3s;
+  display: block;
+  width: 100%;
+  text-align: center;
+}
+
+.help-link:hover {
+  color: var(--dark-color);
+}
+
+/* Game Info Section */
+.game-info {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: var(--spacing-lg);
+  background-color: var(--light-color);
+  padding: var(--spacing-md);
+  border-radius: var(--border-radius-sm);
+}
+
+.game-score, .game-timer, .game-level {
+  text-align: center;
+}
+
+.info-label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: var(--spacing-xs);
+  color: var(--dark-color);
+}
+
+.info-value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--primary-color);
+}
+
+/* Game Canvas/Board Styles */
+.game-board {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  background-color: var(--light-color);
+  border: 2px solid var(--dark-color);
+  border-radius: var(--border-radius-sm);
+  overflow: hidden;
+  margin-bottom: var(--spacing-lg);
+}
+
+/* Game Controls Button Styles */
+.game-btn {
+  padding: var(--spacing-sm) var(--spacing-md);
+  border: none;
+  border-radius: var(--border-radius-sm);
+  background-color: var(--primary-color);
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.game-btn:hover {
+  background-color: var(--dark-color);
+}
+
+.game-btn.reset {
+  background-color: var(--accent-color);
+}
+
+.game-btn.help {
+  background-color: var(--secondary-color);
+}
+
+/* Game Instructions */
+.game-instructions {
+  margin-top: var(--spacing-xl);
+  padding: var(--spacing-lg);
+  background-color: var(--light-color);
+  border-radius: var(--border-radius-md);
+}
+
+.game-instructions h3 {
+  margin-bottom: var(--spacing-md);
+  color: var(--dark-color);
+}
+
+.game-instructions ul {
+  padding-left: var(--spacing-xl);
+  margin-bottom: var(--spacing-md);
+}
+
+.game-instructions li {
+  margin-bottom: var(--spacing-sm);
+}
+
+/* Game Messages (Win/Lose) */
+.game-message {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(255, 255, 255, 0.95);
+  padding: var(--spacing-xl);
+  border-radius: var(--border-radius-md);
+  box-shadow: var(--shadow-lg);
+  text-align: center;
+  z-index: 1000;
+  display: none;
+}
+
+.game-message.active {
+  display: block;
+}
+
+.message-title {
+  font-size: 2rem;
+  margin-bottom: var(--spacing-md);
+}
+
+.message-text {
+  margin-bottom: var(--spacing-lg);
+}
+
+.message-btn {
+  padding: var(--spacing-sm) var(--spacing-lg);
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: var(--border-radius-sm);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* Minesweeper Game Styles */
+.minesweeper-grid {
+  display: grid;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border: 2px solid var(--dark-color);
+  background-color: var(--dark-color);
+  gap: 1px;
+  --cell-size: 30px;
+}
+
+.minesweeper-cell {
+  background-color: #c0c0c0;
+  border: 2px solid;
+  border-color: #f5f5f5 #7b7b7b #7b7b7b #f5f5f5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  font-size: calc(var(--cell-size) * 0.6);
+  cursor: pointer;
+  user-select: none;
+}
+
+.minesweeper-cell.revealed {
+  background-color: #e0e0e0;
+  border-color: #7b7b7b;
+  border-width: 1px;
+  border-style: solid;
+}
+
+.minesweeper-cell.flagged {
+  font-size: calc(var(--cell-size) * 0.7);
+}
+
+.minesweeper-cell.mine {
+  background-color: #ff6b6b;
+}
+
+/* Numbers with different colors */
+.minesweeper-cell.number-1 { color: #0000ff; }
+.minesweeper-cell.number-2 { color: #008000; }
+.minesweeper-cell.number-3 { color: #ff0000; }
+.minesweeper-cell.number-4 { color: #000080; }
+.minesweeper-cell.number-5 { color: #800000; }
+.minesweeper-cell.number-6 { color: #008080; }
+.minesweeper-cell.number-7 { color: #000000; }
+.minesweeper-cell.number-8 { color: #808080; }
+
+.tetris-block {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.snake-segment {
+  background-color: var(--secondary-color);
+  border-radius: 3px;
+}
+
+.snake-food {
+  background-color: var(--accent-color);
+  border-radius: 50%;
+}
+
+/* Responsive Game Styles */
+@media (max-width: 768px) {
+  .game-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .game-controls {
+    margin-top: var(--spacing-sm);
+  }
+  
+  .game-info {
+    flex-direction: column;
+    gap: var(--spacing-sm);
+  }
+}
+
+/* Page Transitions */
+main {
+  transition: opacity 0.3s ease;
+}
+
+main.fade-out {
+  opacity: 0;
+}
+
+/* Instruction Highlighting */
+.game-instructions.highlight {
+  animation: pulse 1.5s;
+}
+
+@keyframes pulse {
+  0% { background-color: var(--light-color); }
+  50% { background-color: rgba(52, 152, 219, 0.2); }
+  100% { background-color: var(--light-color); }
+}
+
+/* Game Modals */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background-color: white;
+  width: 90%;
+  max-width: 500px;
+  padding: var(--spacing-lg);
+  border-radius: var(--border-radius-md);
+  box-shadow: var(--shadow-lg);
+  position: relative;
+}
+
+.close-modal {
+  position: absolute;
+  top: var(--spacing-md);
+  right: var(--spacing-md);
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: var(--dark-color);
+}
+
+.modal-body {
+  margin-bottom: var(--spacing-lg);
+}
+
+.modal-footer {
+  text-align: right;
+}
+
+/* Responsive design for game cards */
+@media (min-width: 768px) {
+  .game-cards {
+    display: flex;
+    gap: var(--spacing-lg);
+  }
+  
+  .game-card {
+    flex: 1;
+  }
+}
