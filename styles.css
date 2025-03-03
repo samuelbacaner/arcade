@@ -1,0 +1,150 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    padding: 20px;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.game-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.difficulty {
+    display: flex;
+    align-items: center;
+}
+
+.difficulty label {
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+.difficulty select {
+    padding: 5px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+
+button {
+    padding: 8px 16px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+.game-info {
+    font-weight: bold;
+}
+
+.game-board {
+    display: grid;
+    grid-template-columns: repeat(9, 1fr);
+    gap: 2px;
+    margin-bottom: 20px;
+}
+
+.cell {
+    width: 30px;
+    height: 30px;
+    background-color: #ddd;
+    border: 1px solid #999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    cursor: pointer;
+    user-select: none;
+}
+
+.cell.revealed {
+    background-color: #bbb;
+}
+
+.cell.mine {
+    background-color: #f44336;
+    color: white;
+}
+
+.cell.flagged {
+    background-color: #2196f3;
+    color: white;
+}
+
+.game-message {
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 20px;
+    min-height: 30px;
+}
+
+/* Numbers colors */
+.cell[data-value="1"] {
+    color: blue;
+}
+.cell[data-value="2"] {
+    color: green;
+}
+.cell[data-value="3"] {
+    color: red;
+}
+.cell[data-value="4"] {
+    color: darkblue;
+}
+.cell[data-value="5"] {
+    color: darkred;
+}
+.cell[data-value="6"] {
+    color: teal;
+}
+.cell[data-value="7"] {
+    color: black;
+}
+.cell[data-value="8"] {
+    color: gray;
+}
+
+/* Make the game responsive */
+@media (max-width: 600px) {
+    .game-controls {
+        flex-direction: column;
+        gap: 10px;
+        align-items: flex-start;
+    }
+    
+    .cell {
+        width: 25px;
+        height: 25px;
+        font-size: 14px;
+    }
+}
